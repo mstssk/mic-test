@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "module": "ES2022",
+    "rootDir": "src",
+    "outDir": "docs",
+    "strict": true
+  }
+}

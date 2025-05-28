@@ -1,0 +1,16 @@
+{
+  "name": "mic-test",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npx serve docs"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
