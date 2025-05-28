@@ -21,6 +21,7 @@ stopButton?.addEventListener("click", () => {
         recordingStream = null;
     }
 });
+console.log("Supported constraints:", navigator.mediaDevices.getSupportedConstraints());
 async function run() {
     const echoCancellation = document.getElementById("echoCancellation").checked;
     const noiseSuppression = document.getElementById("noiseSuppression").checked;

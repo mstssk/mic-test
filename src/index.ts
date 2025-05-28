@@ -23,6 +23,11 @@ stopButton?.addEventListener("click", () => {
   }
 });
 
+console.log(
+  "Supported constraints:",
+  navigator.mediaDevices.getSupportedConstraints()
+);
+
 async function run() {
   const echoCancellation = (
     document.getElementById("echoCancellation") as HTMLInputElement
