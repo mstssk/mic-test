@@ -38,19 +38,28 @@ async function run() {
   const autoGainControl = (
     document.getElementById("autoGainControl") as HTMLInputElement
   ).checked;
+  const voiceIsolation = (
+    document.getElementById("voiceIsolation") as HTMLInputElement
+  ).checked;
 
   console.log("Starting recording with options:", {
     echoCancellation,
     noiseSuppression,
     autoGainControl,
+    voiceIsolation,
   });
 
+  // Create the audio constraints object
+  const audioConstraints: MediaTrackConstraints = {
+    echoCancellation,
+    noiseSuppression,
+    autoGainControl,
+    // @ts-ignore - TypeScript doesn't recognize voiceIsolation property
+    voiceIsolation,
+  };
+
   const stream = await navigator.mediaDevices.getUserMedia({
-    audio: {
-      echoCancellation,
-      noiseSuppression,
-      autoGainControl,
-    },
+    audio: audioConstraints,
   });
   recordingStream = stream;
 
@@ -66,7 +75,12 @@ async function run() {
   div.appendChild(audio);
   div.appendChild(
     document.createTextNode(
-      JSON.stringify({ echoCancellation, noiseSuppression, autoGainControl })
+      JSON.stringify({
+        echoCancellation,
+        noiseSuppression,
+        autoGainControl,
+        voiceIsolation,
+      })
     )
   );
   result.appendChild(div);
